@@ -3,22 +3,20 @@ function parseTemplate(inTemplate, count) {
 
   const codeStrList = extract(inTemplate);
 
-  const { repeat } = require("../generate/base");
-  const {
-    randomStr,
-    repeatRandomStr,
-    repeatStr,
-    randomNStr,
-    randomEnWord,
-  } = require("../generate/string");
-  const { randomArray } = require("../generate/array");
-  const { random } = require("../generate/number");
+  const base = require("../generate/base");
+  const string = require("../generate/string");
+  const array = require("../generate/array");
+  const number = require("../generate/number");
+  const generate = Object.assign(base, string, array, number);
 
   for (let i = 0; i < count; i++) {
     const $i = i;
     let temp = inTemplate;
     codeStrList.forEach(({ template, code }) => {
-      temp = temp.replace(template, eval(code));
+      // @ts-ignore
+      with (generate) {
+        temp = temp.replace(template, eval(code));
+      }
     });
     result.push(temp);
   }

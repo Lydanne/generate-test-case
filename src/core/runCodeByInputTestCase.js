@@ -1,9 +1,9 @@
 const { execSync } = require("child_process");
-const { join } = require("path");
+const { join, resolve } = require("path");
 const { createFile } = require("../tools/file");
 
 function runCodeByInputTestCase(source, inputs) {
-  const tempDataPath = join(__dirname, ".tempData");
+  const tempDataPath = resolve("./", ".tempData");
   const execBinPath = "node";
   const sourcePath = createFile(join(tempDataPath, "source.js"), source);
 
@@ -12,12 +12,12 @@ function runCodeByInputTestCase(source, inputs) {
       join(tempDataPath, "data", index + 1 + ".in"),
       inp
     );
-    const log = execSync(
+    const output = execSync(
       execBinPath + " " + sourcePath + " < " + inputTestCasePath
     ).toString();
 
-    createFile(join(tempDataPath, "data", index + 1 + ".out"), log);
-    return log;
+    createFile(join(tempDataPath, "data", index + 1 + ".out"), output);
+    return output;
   });
 }
 
