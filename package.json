@@ -1,7 +1,8 @@
 {
   "name": "generate-test-case",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
+  "bin": "./src/cli.js",
   "license": "MIT",
   "author": {
     "email": "1829913225@qq.com",
