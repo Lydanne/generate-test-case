@@ -1,5 +1,5 @@
-function merge(inputs, outputs) {
+function mergeArray(inputs, outputs) {
   return inputs.map((item, index) => ({ stdin: item, stdout: outputs[index] }));
 }
 
-module.exports = { merge };
+module.exports = { mergeArray };
