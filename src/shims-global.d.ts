@@ -3,7 +3,8 @@ interface Config {
     compile: string,
     exec: string,
 
-    sourcePath: string,
+    compileFilePath: string
+    execFilePath: string,
     source: string,
     injectLibs: string[],
 

@@ -6,11 +6,12 @@ function configure(cliOptions, filePath) {
     compile: "",
     exec: "node",
 
-    sourcePath: "./source.js",
+    compileFilePath: "",
+    execFilePath: "./source.js",
     source: "",
     injectLibs: [],
 
-    stdinTemplatePath: "./stdinTemplate.js",
+    stdinTemplatePath: "./template",
     stdinTemplate: "",
 
     outDir: "./data",
@@ -27,6 +28,7 @@ function configure(cliOptions, filePath) {
 
   config.count = Number(config.count);
 
+  // @ts-ignore
   globalThis.config = config;
 
   return config;
@@ -45,6 +47,7 @@ function toCamel(str = "") {
 }
 
 function getConfigFile(filePath) {
+  if (!filePath) return {};
   return require(resolve("./", filePath));
 }
 

@@ -1,4 +1,9 @@
-function parseTemplate(inTemplate, count) {
+const { readFileSync } = require("fs");
+
+function parseTemplate(inTemplatePath, count) {
+  const inTemplate = readFileSync(inTemplatePath, {
+    encoding: "utf-8",
+  });
   const result = [];
 
   const codeStrList = extract(inTemplate);

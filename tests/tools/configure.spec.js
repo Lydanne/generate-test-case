@@ -13,9 +13,10 @@ describe("configure.js", () => {
 
     process.env.GTC_ROOT = "./";
 
-    configure(cliOptions, "./tests/tools/config.js");
+    configure(cliOptions, "./tests/.tempData/config.js");
 
     expect(config.root).toBe("./");
-    expect(config.count).toBe(1);
+
+    expect(config.count).toBe(10);
   });
 });
