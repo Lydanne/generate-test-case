@@ -1,4 +1,4 @@
-const { configure } = require("../../src/tools/configure");
+const { configure } = require("../../src/core/configure");
 
 describe("configure.js", () => {
   // 注入优先级
@@ -13,7 +13,7 @@ describe("configure.js", () => {
 
     process.env.GTC_ROOT = "./";
 
-    configure(cliOptions, "./tests/.tempData/config.js");
+    const config = configure(cliOptions, "./tests/.tempData/config.js");
 
     expect(config.root).toBe("./");
 
