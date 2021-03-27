@@ -1,4 +1,5 @@
 {
   "editor.snippetSuggestions": "bottom",
-  "editor.suggest.snippetsPreventQuickSuggestions": false
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  "licenser.projectName": "generate-test-case"
 }
