@@ -6,8 +6,6 @@ function injectLib(filePath, injectLibs) {
     encoding: "utf-8",
   });
 
-  text += `\n/*======= GTC INJECT STDIN =======*/\n`;
-
   injectLibs.forEach((filePath) => {
     if (text.includes(`/*======= ${filePath} =======*/`)) {
       return;

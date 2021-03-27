@@ -1,6 +1,8 @@
+#!/usr/bin/env node
+
 const { Command } = require("commander");
 const package = require("../package.json");
-const main = require("./main");
+const main = require("../src/main");
 
 function cli() {
   const program = new Command();
