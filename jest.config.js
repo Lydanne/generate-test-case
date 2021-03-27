@@ -60,24 +60,9 @@ module.exports = {
   // globalTeardown: undefined,
 
   // A set of global variables that need to be available in all test environments
-  globals: {
-    config: {
-      root: "./tests/.tempData",
-      compile: "",
-      exec: "node",
+  // globals: {
 
-      compileFilePath: "",
-      execFilePath: "./source.js",
-      source: "",
-      injectLibs: ["./stdin.js"],
-
-      stdinTemplatePath: "./stdinTemplate.js",
-      stdinTemplate: "",
-
-      outDir: "./data",
-      count: 10,
-    },
-  },
+  // },
 
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
   // maxWorkers: "50%",
@@ -134,9 +119,7 @@ module.exports = {
   // rootDir: undefined,
 
   // A list of paths to directories that Jest should use to search for files in
-  // roots: [
-  //   "<rootDir>"
-  // ],
+  roots: ["<rootDir>"],
 
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",

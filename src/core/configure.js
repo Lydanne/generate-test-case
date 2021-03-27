@@ -48,7 +48,11 @@ function toCamel(str = "") {
 
 function getConfigFile(filePath) {
   if (!filePath) return {};
-  return require(resolve("./", filePath));
+  try {
+    return require(resolve("./", filePath));
+  } catch (err) {
+    return {};
+  }
 }
 
 module.exports = { configure };

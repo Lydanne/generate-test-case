@@ -1,25 +1,9 @@
 const { resolve } = require("path");
 const { generateTestCase } = require("./core/generateTestCase");
-const { configure } = require("./tools/configure");
+const { configure } = require("./core/configure");
 const { createFile } = require("./tools/file");
-const { Command } = require("commander");
-const package = require("../package.json");
 
-function main() {
-  const program = new Command();
-  program.version(package.version);
-  program.option(
-    "-c, --config [filePath]",
-    "请输入配置文件的位置(default: ./config.js)"
-  );
-  program.parse(process.argv);
-  const options = program.opts();
-
-  let configPath = "./config.js";
-  if (options.config) {
-    configPath = options.config;
-  }
-
+function main({ configPath = "./", ...cliConfig }) {
   let {
     root,
     compile,
@@ -35,7 +19,7 @@ function main() {
 
     outDir,
     count,
-  } = configure({}, resolve("./", configPath));
+  } = configure(cliConfig, resolve("./", configPath));
 
   if (!compileFilePath) compileFilePath = execFilePath;
 
@@ -48,7 +32,7 @@ function main() {
   if (source) createFile(compileFilePath, source);
   if (stdinTemplate) createFile(stdinTemplatePath, stdinTemplate);
 
-  generateTestCase({
+  return generateTestCase({
     compileFilePath,
     execFilePath,
     compile,
@@ -58,8 +42,6 @@ function main() {
     outDir,
     count,
   });
-
-  console.log("GTC OK");
 }
 
-main();
+module.exports = main;

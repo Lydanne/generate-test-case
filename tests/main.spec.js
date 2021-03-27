@@ -1,6 +1,15 @@
+const main = require("../src/main");
+
 describe("main.js", () => {
   it("main", () => {
-    process.env.TEST = "1";
-    expect(process.env.TEST).toBe("1");
+    const result = main({
+      root: "./tests/.tempData",
+      count: 2,
+    });
+
+    expect(result).toEqual([
+      { stdin: "AB", stdout: "4\n" },
+      { stdin: "ABAB", stdout: "16\n" },
+    ]);
   });
 });
