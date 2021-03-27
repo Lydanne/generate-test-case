@@ -3,6 +3,19 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "author": {
+    "email": "1829913225@qq.com",
+    "name": "WumaCoder",
+    "url": "https://github.com/WumaCoder"
+  },
+  "repository": {
+    "url": "https://github.com/WumaCoder/generate-test-case"
+  },
+  "keywords": [
+    "oj",
+    "test case",
+    "cli"
+  ],
   "devDependencies": {
     "@types/jest": "^26.0.21",
     "commander": "^7.2.0",
