@@ -1,8 +1,33 @@
+const { existsSync } = require("fs");
+const { userInfo } = require("os");
 const { resolve, join } = require("path");
 const { createFile } = require("../tools/file");
 
+const defaultConfigTemplate = `{
+  "root": ".",
+  "compile": "",
+  "exec": "",
+  "compileFilePath": "",
+  "execFilePath": "",
+  "source": "",
+  "injectLibs": [],
+  "stdinTemplatePath": "./template",
+  "stdinTemplate": "",
+  "outDir": "./data",
+  "count": 10
+}`;
+
+const defaultConfigPath = join(
+  userInfo().homedir,
+  ".gtc",
+  "defaultConfig.json"
+);
+
 function configure(cliOptions, filePath, isSetDefaultConfig = false) {
-  const defaultConfig = require(join(__dirname, "../defaultConfig.json"));
+  if (!existsSync(defaultConfigPath))
+    createFile(defaultConfigPath, defaultConfigTemplate);
+
+  const defaultConfig = require(defaultConfigPath);
   const envConfig = getEnvConfig();
   const configFile = getConfigFile(filePath);
   const config = Object.assign(
@@ -18,10 +43,7 @@ function configure(cliOptions, filePath, isSetDefaultConfig = false) {
   globalThis.config = config;
 
   if (isSetDefaultConfig) {
-    createFile(
-      join(__dirname, "../defaultConfig.json"),
-      JSON.stringify(config, null, "\t")
-    );
+    createFile(defaultConfigPath, JSON.stringify(config, null, "\t"));
   }
 
   return config;
@@ -48,4 +70,4 @@ function getConfigFile(filePath) {
   }
 }
 
-module.exports = { configure };
+module.exports = { configure, defaultConfigPath };

@@ -1,6 +1,6 @@
 const { resolve, join } = require("path");
 const { generateTestCase } = require("./core/generateTestCase");
-const { configure } = require("./core/configure");
+const { configure, defaultConfigPath } = require("./core/configure");
 const { createFile } = require("./tools/file");
 
 function main({
@@ -29,7 +29,7 @@ function main({
   if (init)
     return createFile(
       resolve("./", config),
-      require(join(__dirname, "./defaultConfig.json"))
+      JSON.stringify(require(defaultConfigPath), null, "\t")
     );
 
   if (!execFilePath) execFilePath = compileFilePath;
