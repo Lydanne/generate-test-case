@@ -3,7 +3,7 @@ const main = require("../src/main");
 describe("main.js", () => {
   it("main", () => {
     const result = main({
-      configPath: "./tests/.example/config.js",
+      config: "./tests/.example/config.js",
       root: "./tests/.example/",
       count: 2,
     });
