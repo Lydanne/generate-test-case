@@ -1,1 +1,1 @@
-{ repeatStr("AB", ($i+1)) }
+{ "AB".repeat($i+1) }

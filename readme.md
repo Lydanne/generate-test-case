@@ -71,10 +71,10 @@ source.js 是标准的 OJ 程序。
 
 **template**
 
-> 在花阔号内的是一段可执行的JS脚本，在这里可以执行JS的语句和方法，GTC提供了一些常用的生成方法可以调用，具体请查看Generate API
+> 在花阔号内的是一段可执行的 JS 脚本，在这里可以执行 JS 的语句和方法，GTC 提供了一些常用的生成方法可以调用，具体请查看 Generate API
 
 ```text
-{ repeatStr("AB", ($i+1)) }
+{ "AB".repeat($i+1) }
 ```
 
 **source.js**
@@ -189,48 +189,38 @@ interface Config {
 
 ## Generate API
 
-###  independent variable
+### independent variable
 
-| 变量名 | 类型   | 功能                        |
-| ------ | ------ | --------------------------- |
-| $i     | number | 每执行完一个输入用例就会加1 |
-
-
+| 变量名 | 类型   | 功能                         |
+| ------ | ------ | ---------------------------- |
+| $i     | number | 每执行完一个输入用例就会加 1 |
 
 ### string
 
-| 方法名                                 | 参数说明                                                     | 功能           |
-| -------------------------------------- | ------------------------------------------------------------ | -------------- |
-| *randomChar*(strList = []):string      | @param {*string[]*} *strList* *待选字符数组，如果不传入表示随机生产一个字母* | *随机生成字符* |
-| randomStr*(len, strList = []):string   | @param {*number*} *len* *随机生成长度为len的字符串*<br />@param {*string[]*} *strList* *待选字符数组，如果不传入表示随机生产一个字母* | 随机生成字符串 |
-| *randomWord*(n, strList = []): strin g | @param {*number*} *n* *生成由n个单词组成的字符串，没有.号。*<br />@param {*string[]*} *strList* *待选字符数组，如果不传入表示随机生产一个字母* | 随机生成多个字 |
-
-
+| 方法名                                 | 参数说明                                                                                                                                         | 功能           |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- |
+| _randomChar_(strList = []):string      | @param {_string[]_} _strList_ _待选字符数组，如果不传入表示随机生产一个字母_                                                                     | _随机生成字符_ |
+| randomStr\*(len, strList = []):string  | @param {_number_} _len_ _随机生成长度为 len 的字符串_<br />@param {_string[]_} _strList_ _待选字符数组，如果不传入表示随机生产一个字母_          | 随机生成字符串 |
+| _randomWord_(n, strList = []): strin g | @param {_number_} _n_ _生成由 n 个单词组成的字符串，没有.号。_<br />@param {_string[]_} _strList_ _待选字符数组，如果不传入表示随机生产一个字母_ | 随机生成多个字 |
 
 ### array
 
-| 方法名                                                  | 参数说明                                                     | 功能                                |
-| ------------------------------------------------------- | ------------------------------------------------------------ | ----------------------------------- |
-| *randomNumArr*(start, end, len, separator = ","):string | @param {*number*} *start* *开始数*<br />@param {*number*} *end* *结束的数*<br />@param {*number*} *len* *数组个数*<br />@param {*string*} *separator* *分割符* | *生成 `[start,end)` 个随机数的数组* |
-| *randomStrArr*(strLen, len, separator = ","):string     | @param {*number*} *strLen* *字符串长度*<br />@param {*number*} *len* *数组个数*<br />@param {*string*} *separator* *分割符* | *生成长度为strLen的字符串数组*      |
-
-
+| 方法名                                                  | 参数说明                                                                                                                                                       | 功能                                |
+| ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| _randomNumArr_(start, end, len, separator = ","):string | @param {_number_} _start_ _开始数_<br />@param {_number_} _end_ _结束的数_<br />@param {_number_} _len_ _数组个数_<br />@param {_string_} _separator_ _分割符_ | _生成 `[start,end)` 个随机数的数组_ |
+| _randomStrArr_(strLen, len, separator = ","):string     | @param {_number_} _strLen_ _字符串长度_<br />@param {_number_} _len_ _数组个数_<br />@param {_string_} _separator_ _分割符_                                    | _生成长度为 strLen 的字符串数组_    |
 
 ### number
 
 | 方法名                      | 参数说明                                               | 功能                                 |
 | --------------------------- | ------------------------------------------------------ | ------------------------------------ |
-| *random*(start, end):number | @param {*number*} *start*<br />@param {*number*} *end* | *生成 `[start, end)` 区间内的随机数* |
-
-
+| _random_(start, end):number | @param {_number_} _start_<br />@param {_number_} _end_ | _生成 `[start, end)` 区间内的随机数_ |
 
 ### base
 
-| 方法名                | 参数说明                                                     | 功能                              |
-| --------------------- | ------------------------------------------------------------ | --------------------------------- |
-| *repeat*(cb, n):array | @param {*(i:number)=>any*} *cb* *回调*<br />@param {*number*} *n* *执行次数* | *执行n此cb，并且将结果返回成数组* |
-
-
+| 方法名                | 参数说明                                                                     | 功能                                 |
+| --------------------- | ---------------------------------------------------------------------------- | ------------------------------------ |
+| _repeat_(cb, n):array | @param {_(i:number)=>any_} _cb_ _回调_<br />@param {_number_} _n_ _执行次数_ | _执行 n 此 cb，并且将结果返回成数组_ |
 
 ## About
 
