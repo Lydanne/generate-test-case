@@ -1,11 +1,12 @@
-const { resolve } = require("path");
+const { resolve, join } = require("path");
 const { generateTestCase } = require("./core/generateTestCase");
 const { configure } = require("./core/configure");
 const { createFile } = require("./tools/file");
 
 function main({
-  config = "./config.js",
+  config = "./config.json",
   setDefaultConfig = false,
+  init = false,
   ...cliConfig
 }) {
   let {
@@ -24,6 +25,12 @@ function main({
     outDir,
     count,
   } = configure(cliConfig, resolve("./", config), setDefaultConfig);
+
+  if (init)
+    return createFile(
+      resolve("./", config),
+      require(join(__dirname, "./defaultConfig.json"))
+    );
 
   if (!execFilePath) execFilePath = compileFilePath;
 

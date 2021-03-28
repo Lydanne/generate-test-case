@@ -1,8 +1,8 @@
-const { resolve } = require("path");
+const { resolve, join } = require("path");
 const { createFile } = require("../tools/file");
 
 function configure(cliOptions, filePath, isSetDefaultConfig = false) {
-  const defaultConfig = require("../defaultConfig.json");
+  const defaultConfig = require(join(__dirname, "../defaultConfig.json"));
   const envConfig = getEnvConfig();
   const configFile = getConfigFile(filePath);
   const config = Object.assign(
@@ -18,7 +18,10 @@ function configure(cliOptions, filePath, isSetDefaultConfig = false) {
   globalThis.config = config;
 
   if (isSetDefaultConfig) {
-    createFile("../defaultConfig.json", JSON.stringify(config, null, "\t"));
+    createFile(
+      join(__dirname, "../defaultConfig.json"),
+      JSON.stringify(config, null, "\t")
+    );
   }
 
   return config;

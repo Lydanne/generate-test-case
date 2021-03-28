@@ -169,12 +169,15 @@ module.exports = {
 ## Cli Options
 
 > Cli 基本与下面的配置文件一致
-> 这里只需要说一下两个特殊的选项
+> 这里只需要说一下三个特殊的选项
 
 ```bash
 gtc -c "./config.js" -sdc
 # -c ,--config 表示的是配置文件的位置，默认是 "./config.js"
 # -sdc ,--setDefaultConfig 表示是否将当前的配置替换为默认配置
+
+gtc -i
+# -i ,--init 创建默认配置文件
 ```
 
 ## Config API
