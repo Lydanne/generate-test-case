@@ -1,5 +1,5 @@
 /**
- * 生成 [start, end) 区间内的随机数
+ * 生成 `[start, end)` 区间内的随机数
  * @param {number} start
  * @param {number} end
  */
