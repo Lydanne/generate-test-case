@@ -70,7 +70,7 @@ const gather = [
  * @param {string[]} strList 待选字符数组，如果不传入表示随机生产一个字母
  */
 function randomChar(strList = []) {
-  if (!strList) {
+  if (!strList || !strList.length) {
     return gather[random(0, gather.length)];
   }
   return strList[Math.floor(Math.random() * strList.length)];
