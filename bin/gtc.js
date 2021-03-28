@@ -13,7 +13,7 @@ function cli() {
     "Config file path (default: ./config.js)"
   );
 
-  program.option("-r, --root [path]", " Root path (default: ./)");
+  program.option("-r, --root [path]", "Root path (default: ./)");
   program.option("-ce, --compile [command]", "Compiler command or path");
   program.option(
     "-e, --exec [command]",
@@ -28,17 +28,14 @@ function cli() {
     "The path to the file to execute (default: ./source.js)"
   );
   program.option("-source, --source [string]", "Source string");
-  program.option(
-    "-il, --injectLibs [path1, path2, ...]",
-    "Inject lib file path"
-  );
+  program.option("-il, --injectLibs [path...]", "Inject lib file path");
   program.option(
     "-stp, --stdinTemplatePath [path]",
     "Stdin template path (default: ./template)"
   );
   program.option("-st, --stdinTemplate [string]", "Stdin template");
   program.option("-od, --outDir [dir]", "Test case dir (default: ./data)");
-  program.option("-ct, --count [number]", "test case count (default: 10)");
+  program.option("-ct, --count [number]", "Test case count (default: 10)");
 
   program.parse(process.argv);
   const options = program.opts();
