@@ -65,32 +65,46 @@ const gather = [
   "Y",
   "Z",
 ];
-
-function randomStr(strs) {
-  if (!strs) {
+/**
+ *随机生成字符串
+ * @param {string[]} strList 待选字符数组，如果不传入表示随机生产一个字母
+ */
+function randomChar(strList = []) {
+  if (!strList) {
     return gather[random(0, gather.length)];
   }
-  return strs[Math.floor(Math.random() * strs.length)];
+  return strList[Math.floor(Math.random() * strList.length)];
 }
 
-function randomNStr(n) {
-  return repeat(() => randomStr(), n).join("");
+/**
+ *
+ * @param {number} len 随机生成长度为len的字符串
+ */
+function randomStr(len) {
+  return repeat(() => randomChar(), len).join("");
 }
 
-function randomEnWord(n) {
-  return repeat(() => randomNStr(random(3, 7)), n).join(" ");
+/**
+ *
+ * @param {number} n 生成由n个单词组成的字符串，没有.号。
+ */
+function randomWord(n) {
+  return repeat(() => randomStr(random(3, 7)), n).join(" ");
 }
 
-function repeatRandomStr(strs, n, separator = "") {
-  return repeat(randomStr.bind(null, strs), n).join(separator);
+/**
+ *
+ * @param {string[]} strList 待选择的字符串数组
+ * @param {number} n 产生多少个
+ * @param {string} separator 分割符
+ */
+function repeatRandomChar(strList, n, separator = "") {
+  return repeat(randomChar.bind(null, strList), n).join(separator);
 }
-function repeatStr(str, n, separator = "") {
-  return repeatRandomStr([str], n, separator);
-}
+
 module.exports = {
+  randomChar,
+  repeatRandomChar,
   randomStr,
-  repeatRandomStr,
-  repeatStr,
-  randomNStr,
-  randomEnWord,
+  randomWord,
 };
