@@ -21,7 +21,7 @@ function main({ config = "./config.js", ...cliConfig }) {
     count,
   } = configure(cliConfig, resolve("./", config));
 
-  if (!compileFilePath) compileFilePath = execFilePath;
+  if (!execFilePath) execFilePath = compileFilePath;
 
   compileFilePath = resolve(root, compileFilePath);
   execFilePath = resolve(root, execFilePath);

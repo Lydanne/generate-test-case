@@ -6,8 +6,8 @@ function configure(cliOptions, filePath) {
     compile: "",
     exec: "node",
 
-    compileFilePath: "",
-    execFilePath: "./source.js",
+    compileFilePath: "./source.js",
+    execFilePath: "",
     source: "",
     injectLibs: [],
 
