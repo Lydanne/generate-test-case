@@ -10,22 +10,19 @@ function cli() {
 
   program.option(
     "-c, --config [path]",
-    "Config file path (default: ./config.js)"
+    "Config file path (default: ./config.json)"
   );
 
   program.option("-r, --root [path]", "Root path (default: ./)");
   program.option("-co, --compile [command]", "Compiler command or path");
-  program.option(
-    "-e, --exec [command]",
-    "Execute the command of a program (default: node)"
-  );
+  program.option("-e, --exec [command]", "Execute the command of a program");
   program.option(
     "-cfp, --compileFilePath [path]",
     "The path to the compiled file"
   );
   program.option(
     "-efp, --execFilePath [path]",
-    "The path to the file to execute (default: ./source.js)"
+    "The path to the file to execute"
   );
   program.option("-s, --source [string]", "Source string");
   program.option("-il, --injectLibs [path...]", "Inject lib file path");
@@ -37,7 +34,7 @@ function cli() {
   program.option("-od, --outDir [dir]", "Test case dir (default: ./data)");
   program.option("-co, --count [number]", "Test case count (default: 10)");
   program.option("-sdc, --setDefaultConfig", "set default config");
-  program.option("-i, --init", "init config");
+  program.option("-i, --init", "create config file");
 
   program.parse(process.argv);
   const options = program.opts();
