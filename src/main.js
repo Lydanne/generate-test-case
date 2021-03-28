@@ -3,7 +3,11 @@ const { generateTestCase } = require("./core/generateTestCase");
 const { configure } = require("./core/configure");
 const { createFile } = require("./tools/file");
 
-function main({ config = "./config.js", ...cliConfig }) {
+function main({
+  config = "./config.js",
+  setDefaultConfig = false,
+  ...cliConfig
+}) {
   let {
     root,
     compile,
@@ -19,7 +23,7 @@ function main({ config = "./config.js", ...cliConfig }) {
 
     outDir,
     count,
-  } = configure(cliConfig, resolve("./", config));
+  } = configure(cliConfig, resolve("./", config), setDefaultConfig);
 
   if (!execFilePath) execFilePath = compileFilePath;
 

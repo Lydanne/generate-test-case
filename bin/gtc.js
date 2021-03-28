@@ -36,6 +36,7 @@ function cli() {
   program.option("-st, --stdinTemplate [string]", "Stdin template");
   program.option("-od, --outDir [dir]", "Test case dir (default: ./data)");
   program.option("-ct, --count [number]", "Test case count (default: 10)");
+  program.option("-sdc, --setDefaultConfig", "Test case count (default: 10)");
 
   program.parse(process.argv);
   const options = program.opts();

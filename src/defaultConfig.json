@@ -1,0 +1,13 @@
+{
+  "root": ".",
+  "compile": "",
+  "exec": "",
+  "compileFilePath": "",
+  "execFilePath": "",
+  "source": "",
+  "injectLibs": [],
+  "stdinTemplatePath": "./template",
+  "stdinTemplate": "",
+  "outDir": "./data",
+  "count": 10
+}

@@ -1,22 +1,8 @@
 const { resolve } = require("path");
+const { createFile } = require("../tools/file");
 
-function configure(cliOptions, filePath) {
-  const defaultConfig = {
-    root: ".",
-    compile: "",
-    exec: "node",
-
-    compileFilePath: "./source.js",
-    execFilePath: "",
-    source: "",
-    injectLibs: [],
-
-    stdinTemplatePath: "./template",
-    stdinTemplate: "",
-
-    outDir: "./data",
-    count: 10,
-  };
+function configure(cliOptions, filePath, isSetDefaultConfig = false) {
+  const defaultConfig = require("../defaultConfig.json");
   const envConfig = getEnvConfig();
   const configFile = getConfigFile(filePath);
   const config = Object.assign(
@@ -30,6 +16,10 @@ function configure(cliOptions, filePath) {
 
   // @ts-ignore
   globalThis.config = config;
+
+  if (isSetDefaultConfig) {
+    createFile("../defaultConfig.json", JSON.stringify(config, null, "\t"));
+  }
 
   return config;
 }

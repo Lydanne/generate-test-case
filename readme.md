@@ -166,6 +166,17 @@ module.exports = {
 然后在当前目录下执行 `gtc`, 后查看 `./data` 下的文件
 到这里你已经会基本操作，更多详细内容请查看 `Config API` 和 `Generate API`
 
+## Cli Options
+
+> Cli 基本与下面的配置文件一致
+> 这里只需要说一下两个特殊的选项
+
+```bash
+gtc -c "./config.js" -sdc
+# -c ,--config 表示的是配置文件的位置，默认是 "./config.js"
+# -sdc ,--setDefaultConfig 表示是否将当前的配置替换为默认配置
+```
+
 ## Config API
 
 ```ts
@@ -183,7 +194,7 @@ interface Config {
   stdinTemplate: string; // 输入文件模版
 
   outDir: string; // 测试用例输出位置
-  count: number; // 生成数量
+  count: number; // 生成数量 default: 10
 }
 ```
 
