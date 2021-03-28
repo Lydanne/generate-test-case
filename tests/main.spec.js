@@ -3,7 +3,8 @@ const main = require("../src/main");
 describe("main.js", () => {
   it("main", () => {
     const result = main({
-      root: "./tests/.tempData",
+      configPath: "./tests/.example/config.js",
+      root: "./tests/.example/",
       count: 2,
     });
 
