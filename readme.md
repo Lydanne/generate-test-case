@@ -220,7 +220,7 @@ interface Config {
 | 方法名                                 | 参数说明                                                                                                                                         | 功能           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- |
 | _randomChar_(strList = []):string      | @param {_string[]_} _strList_ _待选字符数组，如果不传入表示随机生产一个字母_                                                                     | _随机生成字符_ |
-| randomStr\*(len, strList = []):string  | @param {_number_} _len_ _随机生成长度为 len 的字符串_<br />@param {_string[]_} _strList_ _待选字符数组，如果不传入表示随机生产一个字母_          | 随机生成字符串 |
+| randomStr(len, strList = []):string  | @param {_number_} _len_ _随机生成长度为 len 的字符串_<br />@param {_string[]_} _strList_ _待选字符数组，如果不传入表示随机生产一个字母_          | 随机生成字符串 |
 | _randomWord_(n, strList = []): strin g | @param {_number_} _n_ _生成由 n 个单词组成的字符串，没有.号。_<br />@param {_string[]_} _strList_ _待选字符数组，如果不传入表示随机生产一个字母_ | 随机生成多个字 |
 
 ### array
