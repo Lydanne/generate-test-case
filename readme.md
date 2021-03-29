@@ -194,8 +194,8 @@ interface Config {
   compile: string; // 编译命令，不包含文件路径
   exec: string; // 执行命令，不包含文件路径
 
-  compileFilePath: string; // 要编译的源文件，他会拼接到compile后面, default: <execFilePath>
-  execFilePath: string; // 要执行的文件，他会拼接到exec后面
+  compileFilePath: string; // 要编译的源文件，他会拼接到compile后面
+  execFilePath: string; // 要执行的文件，他会拼接到exec后面 default: <execFilePath>
   source: string; // 源码 他和compileFilePath只能写一个
   injectLibs: string[]; // 执行之前注入的文件，比如上面的 getLine
 
