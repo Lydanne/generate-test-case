@@ -179,7 +179,7 @@ module.exports = {
 
 ```bash
 gtc -c "./config.js" -sdc
-# -c ,--config 表示的是配置文件的位置，默认是 "./config.js"
+# -c ,--config 表示的是配置文件的位置，默认是 "./config.json"
 # -sdc ,--setDefaultConfig 表示是否将当前的配置替换为默认配置
 
 gtc -i
