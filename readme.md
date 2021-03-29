@@ -225,10 +225,11 @@ interface Config {
 
 ### array
 
-| 方法名                                                  | 参数说明                                                                                                                                                       | 功能                                |
-| ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
-| _randomNumArr_(start, end, len, separator = ","):string | @param {_number_} _start_ _开始数_<br />@param {_number_} _end_ _结束的数_<br />@param {_number_} _len_ _数组个数_<br />@param {_string_} _separator_ _分割符_ | _生成 `[start,end)` 个随机数的数组_ |
-| _randomStrArr_(strLen, len, separator = ","):string     | @param {_number_} _strLen_ _字符串长度_<br />@param {_number_} _len_ _数组个数_<br />@param {_string_} _separator_ _分割符_                                    | _生成长度为 strLen 的字符串数组_    |
+| 方法名                                                   | 参数说明                                                     | 功能                                |
+| -------------------------------------------------------- | ------------------------------------------------------------ | ----------------------------------- |
+| _randomNumArr_(start, end, len, separator = ","):string  | @param {_number_} _start_ _开始数_<br />@param {_number_} _end_ _结束的数_<br />@param {_number_} _len_ _数组个数_<br />@param {_string_} _separator_ _分割符_ | _生成 `[start,end)` 个随机数的数组_ |
+| _randomStrArr_(strLen, len, separator = ","):string      | @param {_number_} _strLen_ _字符串长度_<br />@param {_number_} _len_ _数组个数_<br />@param {_string_} _separator_ _分割符_ | _生成长度为 strLen 的字符串数组_    |
+| *incrNumArr*(start, len, step = 1, separator=","):string | @param {*number*} *start* *初始值*<br />@param {*number*} *len* *长度*<br />@param {*number*} *step* *步长*<br />@param {*string*} *separator* *分割符号* | *生成一个顺序数列*                  |
 
 ### number
 

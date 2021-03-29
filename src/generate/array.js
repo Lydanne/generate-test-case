@@ -23,7 +23,24 @@ function randomStrArr(strLen, len, separator = ",") {
   return repeat(() => randomStr(strLen), len).join(separator);
 }
 
+/**
+ * 生成一个顺序数列
+ * @param {number} start 初始值
+ * @param {number} len 长度
+ * @param {number} step 步长
+ * @param {string} separator 分割符号
+ */
+function incrNumArr(start, len, step = 1, separator = ",") {
+  const result = [];
+  for (let i = 0; i < len; i++) {
+    result.push(start);
+    start += step;
+  }
+  return result.join(separator);
+}
+
 module.exports = {
   randomNumArr,
   randomStrArr,
+  incrNumArr,
 };
