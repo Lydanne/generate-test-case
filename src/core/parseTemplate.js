@@ -12,7 +12,9 @@ function parseTemplate(inTemplatePath, count) {
   const string = require("../generate/string");
   const array = require("../generate/array");
   const number = require("../generate/number");
-  const generate = Object.assign(base, string, array, number);
+  const tree = require("../generate/tree");
+
+  const generate = Object.assign(base, string, array, number, tree);
 
   for (let i = 0; i < count; i++) {
     const $i = i;
