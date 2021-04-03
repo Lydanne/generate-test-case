@@ -15,7 +15,7 @@ async function main() {
 
 main();
 
-/*======= /Users/wmc/workspace/_temp/generate-test-case/tests/.example/lib/stdin.js =======*/
+/*======= /Users/wmc/workspace/generate-test-case/tests/.example/lib/stdin.js =======*/
 const readline = require("readline");
 
 const rl = readline.createInterface({

@@ -32,11 +32,45 @@ function parseTemplate(inTemplatePath, count) {
 }
 
 function extract(template) {
-  const result = template.match(/(?<!\\){.+?(?<!\\)}/gim) || [];
+  const result = matchCode(template);
   return result.map((template) => ({
     template,
     code: template.substr(1, template.length - 2),
   }));
 }
 
-module.exports = { parseTemplate, extract };
+function matchCode(str) {
+  let stack = 0;
+  let isMatch = false;
+  let tempStr = "";
+  const result = [];
+  for (let i = 0; i < str.length; i++) {
+    if (!isMatch && str[i] === "/") {
+      if (str[i + 1] === "{") {
+        str = str.slice(0, i) + str.slice(i + 1);
+      }
+      continue;
+    }
+    if (str[i] === "{") {
+      stack++;
+      if (stack === 1) {
+        isMatch = true;
+      }
+    }
+    if (isMatch) {
+      tempStr += str[i];
+    }
+    if (isMatch && str[i] === "}") {
+      stack--;
+      if (stack === 0) {
+        result.push(tempStr);
+        isMatch = false;
+        tempStr = "";
+      }
+    }
+  }
+
+  return result;
+}
+
+module.exports = { parseTemplate };
