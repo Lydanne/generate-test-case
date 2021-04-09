@@ -60,4 +60,5 @@ function randomBST(start, end, len) {
 module.exports = {
   randomBinaryTree,
   symmetryBinaryTree,
+  randomBST,
 };

@@ -14,7 +14,14 @@ function parseTemplate(inTemplatePath, count) {
   const number = require("../generate/number");
   const tree = require("../generate/tree");
 
-  const generate = Object.assign(base, string, array, number, tree);
+  const generate = Object.assign(
+    base,
+    string,
+    array,
+    number,
+    tree,
+    require("../transform/tree")
+  );
 
   for (let i = 0; i < count; i++) {
     const $i = i;
