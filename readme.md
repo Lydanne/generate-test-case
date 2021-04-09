@@ -245,6 +245,7 @@ interface Config {
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ---------------------- |
 | *randomBinaryTree*(start = 0, end = 100, len = 100, vacancy = 5): string | @param {*number*} *start* *开始值*<br />@param {*number*} *end* *结束值*<br />@param {*number*} *len* *数组长度*<br />@param {*number*} *vacancy* *空节点概率 0 是100% 1是50% 2是33%* | *生成一个随机的二叉树* |
 | *symmetryBinaryTree*(base = 0, dep = 10): string             | @param {*number*} *base* *基础值*<br />@param {*number*} *dep* *深度* | *成对称二叉树*         |
+| *randomBST*(start, end, len):TreeNode                        | @param {*number*} *start* *开始值*<br />@param {*number*} *end* *结束值*<br />@param {*number*} *len* *长度* | 生成随机的二叉搜索树   |
 
 ### base
 
